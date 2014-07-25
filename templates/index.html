@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>Course Table - ChenLiZhan</title>
+</head>
+<body>
+	<table>
+		<th>
+			<td></td>
+{% for date in dates %}
+			<td>{{ date }}</td>
+		</th>
+{% endfor %}
+{% for time in times %}
+		<tr>
+			<td>{{ time }}</td>
+{% for count in range(0, dates | length - 1) %}
+			<td></td>
+{% endfor %}
+		</tr>
+{% endfor %}
+	</table>
+	<form>
+		<dl>
+			<dt>Course Name:</dt>
+			<dd><input type="text" placeholder="course name..."></dd>
+		</dl>
+		<dl>
+			<dt>Course Time:</dt>
+			<dd>
+				<select>
+{% for date in dates %}
+					<option value="{{ date }}">{{ date }}</option>
+{% endfor %}
+				</select>
+				<select>
+{% for time in times %}
+					<option value="{{ time }}">{{ time }}</option>
+{% endfor %}
+				</select>
+			</dd>
+		</dl>
+		<button type="submit">Confirm</button>
+	</form>
+</body>
+</html>
